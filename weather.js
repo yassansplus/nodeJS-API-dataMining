@@ -9,6 +9,7 @@ router.get('/:search',  function(req, res) {
  
     const appID = 'KCkD4m9nZYJLn4ScvFNb'; // here.com appID
     const appCode = 'T5pv0crZXEcIrdsxMzTxOg'; // here.com appCode
+    city = req.params.search
     let myWeather;
     const weather = new Weather({
         appID,
@@ -16,7 +17,7 @@ router.get('/:search',  function(req, res) {
     });
      
     // now(<location>) returns a Promise
-    weather.now('Franconville, France').then((results) => {
+    weather.now(''+city+', France').then((results) => {
         res.json(results)
     });
     
