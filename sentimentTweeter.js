@@ -12,48 +12,58 @@ router.get('/:id/:echantillon',  function(req, res) {
       access_token_secret: 'OZLEuUqgpaaURK3XQERJku9M1Yzkp74MuZwfVVDFGRNqc'
     });
   
-    let tab = "";
-    //[vote,score]
-    let neutral = [0,0];  
-    let positive = [0,0]
-    let negative =[0,0];
+    //[vote,score,purcent]
+    let neutral = [0,0,];  
+    let positive = [0,0,]
+    let negative =[0,0,];
   
     var params = { screen_name: req.params.id, include_rts: 1 ,exclude_replies: true,is_quote_status:false, count: req.params.echantillon };
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
       if (!error) {
       for(let i = 0; i<tweets.length; i++){
-        tab = tab+" "+ tweets[i].text
         let sentimentAnalyse = sentiment(tweets[i].text,'fr');
         switch(sentimentAnalyse.vote){
           case "neutral":
             neutral[0]++;
             neutral[1] += sentimentAnalyse.score
+            break;
           case "positive":
             positive[0]++;
             positive[1] += sentimentAnalyse.score
+            break;
+            
           case "negative":
             negative[0]++;
             negative[1] += sentimentAnalyse.score
+           
+           
+ 
+          break;
 
         }
-        console.log (negative,positive,negative);
+        // console.log (negative,positive,negative);
 
       }
-    let sentimentAnalyse = sentiment(tab,'fr');
-     
+    
+
       toReturn = {
         sentiment : {
           negative: {
             vote: negative[0],
-            score: negative[1]
+            score: negative[1],
+            purcent: Number.parseFloat((negative[0]/tweets.length)*100).toFixed(2),
           },
           positive: {
             vote: positive[0],
-            score: positive[1]
+            score: positive[1],
+            purcent: Number.parseFloat((positive[0]/tweets.length)*100).toFixed(2),
+
           },
           neutral: {
             vote: neutral[0],
-            score: neutral[1]
+            score: neutral[1],
+            purcent: Number.parseFloat((neutral[0]/tweets.length)*100).toFixed(2)
+
           }
         },
         echantillon : tweets.length,
@@ -62,7 +72,7 @@ router.get('/:id/:echantillon',  function(req, res) {
         profil_pics : tweets[0].user.profile_image_url
   
       };
-      console.log(toReturn)
+      // console.log(toReturn)
         res.json(toReturn) ;
       }
     });
