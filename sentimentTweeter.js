@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Twitter = require('twitter');
 var sentiment = require('sentiment-multilang');
+var DateFormat = require('./middleware/DatFormat')
 // define the home page route
 router.get('/:id/:echantillon',  function(req, res) {
 
@@ -65,13 +66,13 @@ router.get('/:id/:echantillon',  function(req, res) {
           }
         },
         between_date:{
-          start: convertDate(tweets[tweets.length-1].created_at) ,
-          end: convertDate(tweets[0].created_at),
+          start:DateFormat(tweets[tweets.length-1].created_at) ,
+          end: DateFormat(tweets[0].created_at),
 
         },
         echantillon : tweets.length,
         screen_name : tweets[0].user.screen_name,
-        name : tweets[0].user.screen_name,
+        name : tweets[0].user.name,
         profil_pics : tweets[0].user.profile_image_url
   
       };
@@ -81,11 +82,7 @@ router.get('/:id/:echantillon',  function(req, res) {
   });
 
 
-  function convertDate(inputFormat) {
-    function pad(s) { return (s < 10) ? '0' + s : s; }
-    var d = new Date(inputFormat)
-    return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/')
-  }
   
-  console.log(convertDate('Mon Nov 19 13:29:40 2012')) // => "19/11/2012"
+  
+  
   module.exports = router;
