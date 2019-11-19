@@ -1,0 +1,23 @@
+{
+  "name": "begood",
+  "version": "1.0.0",
+  "description": "Un site permettant d'envoyer un message gentil à quelqu'un potentiellement sur twitter pour le moment ou par mail ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yassine BOUSAIDI",
+  "license": "ISC",
+  "dependencies": {
+    "base64-img": "^1.0.4",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "reverse-geocode": "^1.3.3",
+    "sentiment": "^5.0.2",
+    "sentiment-multilang": "0.0.2",
+    "twitter": "^1.7.1",
+    "weather": "^1.0.4",
+    "wikijs": "^6.0.1"
+  }
+}
