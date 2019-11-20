@@ -5,17 +5,11 @@ let weather = (require('./weather'))
 var sentimentTweeter = require('./sentimentTweeter');
 var face = require('./face');
 
-app.all('/', function(req, res, next) {
+app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
- });
- 
-    app.options('*', (req, res) => {
-        // allowed XHR methods  
-        res.header('Access-Control-Allow-Methods', 'GET, PATCH, PUT, POST, DELETE, OPTIONS');
-        res.send();
-    });
+});
  
 app.use(express.static('public'));
 app.use('/tweeter/',sentimentTweeter);
