@@ -5,20 +5,24 @@ let weather = (require('./weather'))
 var sentimentTweeter = require('./sentimentTweeter');
 var face = require('./face');
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+const allowedOrigins = [
+  'capacitor://localhost',
+  'ionic://localhost',
+  'http://localhost',
+  'http://localhost:8080',
+  'http://localhost:8100'
+];
 
-  // authorized headers for preflight requests
-  // https://developer.mozilla.org/en-US/docs/Glossary/preflight_request
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-
-  app.options('*', (req, res) => {
-      // allowed XHR methods  
-      res.header('Access-Control-Allow-Methods', 'GET, PATCH, PUT, POST, DELETE, OPTIONS');
-      res.send();
-  });
-});
+// Reflect the origin if it's in the allowed list or not defined (cURL, Postman, etc.)
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Origin not allowed by CORS'));
+    }
+  }
+}
 
 app.use(express.static('public'));
 app.use('/tweeter/',sentimentTweeter);
