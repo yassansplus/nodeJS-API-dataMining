@@ -4,19 +4,7 @@ var Twitter = require('twitter');
 var sentiment = require('sentiment-multilang');
 var DateFormat = require('./middleware/DatFormat')
 // define the home page route
-
-// Reflect the origin if it's in the allowed list or not defined (cURL, Postman, etc.)
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Origin not allowed by CORS'));
-    }
-  }
-}
-
-router.get('/:id/:echantillon', cors(corsOptions),  function(req, res,next) {
+router.get('/:id/:echantillon',  function(req, res,next) {
 
     var client = new Twitter({
       consumer_key: 'E0OBpgATZe8yQOpGM7AEXApYQ',
