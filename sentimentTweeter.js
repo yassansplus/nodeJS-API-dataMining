@@ -4,7 +4,7 @@ var Twitter = require('twitter');
 var sentiment = require('sentiment-multilang');
 var DateFormat = require('./middleware/DatFormat')
 // define the home page route
-router.get('/:id/:echantillon',  function(req, res) {
+router.get('/:id/:echantillon',  function(req, res,next) {
 
     var client = new Twitter({
       consumer_key: 'E0OBpgATZe8yQOpGM7AEXApYQ',
