@@ -38,8 +38,11 @@
         "",
 
     ]
+    var w = window.innerWidth;
+    var h = window.innerHeight;
     var myDiv = document.getElementById('Listen');
     myDiv.textContent = citation[Math.floor(Math.random() * citation.length)]
+    myDiv.style.top = ""+h/4+"px";
 
 
 </script>
