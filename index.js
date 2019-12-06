@@ -5,6 +5,8 @@ let weather = (require('./weather'))
 var sentimentTweeter = require('./sentimentTweeter');
 var face = require('./face');
 var firstPage = require('./firstPage');
+var sophia = require('./sophia')
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -16,6 +18,7 @@ app.use('/tweeter/',sentimentTweeter);
 app.use('/meteo/',weather);
 app.use('/faceRecognition/',face);
 app.use('/',firstPage);
+app.use('/sophia/',sophia);
 
 
 
