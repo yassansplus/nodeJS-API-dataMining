@@ -22,7 +22,7 @@ router.get('/',  function(req, res) {
         var rand = tweets[Math.floor(Math.random() * tweets.length)];
         let txt = rand.full_text;
         console.log(rand);
-        client.post('statuses/update', {status: "Eva viens de detecter la connexion d'une personne checker les logs pour en savoir plus."}, function(error, tweet, response) {
+        client.post('statuses/update', {status: "Eva viens de detecter la connexion d'une personne checker les logs pour en savoir plus. pour la citation: \n\n"+txt+""}, function(error, tweet, response) {
             if (!error) {
               console.log(tweet);
             }
