@@ -18,11 +18,11 @@ router.get('/:id/:echantillon',  function(req, res,next) {
     let positive = [0,0,]
     let negative =[0,0,];
   
-    var params = { screen_name: req.params.id, include_rts: 1 ,exclude_replies: true,is_quote_status:false, count: req.params.echantillon };
+    var params = {tweet_mode: "extended", screen_name: req.params.id, include_rts: 1 ,exclude_replies: true,is_quote_status:false, count: req.params.echantillon };
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
       if (!error) {
       for(let i = 0; i<tweets.length; i++){
-        let sentimentAnalyse = sentiment(tweets[i].text,'fr');
+        let sentimentAnalyse = sentiment(tweets[i].full_text,'fr');
         switch(sentimentAnalyse.vote){
           case "neutral":
             neutral[0]++;
