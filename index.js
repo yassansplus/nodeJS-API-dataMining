@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 let indexRoute = require("./middleware/index");
-let weather = (require('./controller/weather'))
+// let weather = (require('./controller/weather'))
 var sentimentTweeter = require('./controller/sentimentTweeter');
 var face = require('./controller/face');
 var firstPage = require('./controller/firstPage');
