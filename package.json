@@ -13,6 +13,8 @@
     "body-parser": "^1.19.0",
     "ejs": "^2.7.4",
     "express": "^4.17.1",
+    "image-diff": "^2.0.0",
+    "image-downloader": "^3.5.0",
     "mysql": "^2.17.1",
     "mysql2": "^2.0.2",
     "node-cron": "^2.0.3",

@@ -6,7 +6,7 @@ router.use(bodyParser.json()); // support json encoded bodies
 router.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // define the home page route
-router.get('/:image',  function(req, res) {
+router.post('/',  function(req, res) {
     // var image64 = req.body.image;
     var image64 = req.params.image;
 

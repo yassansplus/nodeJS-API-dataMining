@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/firstPage.css">
+
+</head>
+<body>
+<div class="night">
+
+    <% for(var i = 0; i < 20; i++) { %>
+        <div class="shooting_star"></div>
+    <% } %>
+
+</div>
+<div id="Listen">
+   <form action="/user/look" method="POST">
+       <input name='username' type="text">
+   </form>
+</div>
+
+
+<script>
+    citation = [
+        "Le martyre, c’est le seul moyen de devenir célèbre quand on n’a pas de talent.",
+        "J'étais devenu une relique du passé qu'ils souhaitaient tous voir disparaître. Jeune, je me suis demandé pourquoi j'existais.",
+        " La solitude est plus forte que la raison.",
+        "Peut-être que la compagnie d'une personne mauvaise est préférable à la solitude.",
+        "L'unique chose à faire est de rompre avec le passé par l'effort et la volonté. Je ne dois plus me réfugier dans la solitude ... C'est seulement comme ça qu'un jour peut-être, je serai reconnu ...",
+        "On peut très bien vénérer quelqu'un qui n'est pas du côté du bien. On peut même être conscient de cette noirceur... mais la préférer à la solitude.",
+        "Les gens vivent en s'appuyant sur leurs convictions et leurs connaissances et ils appellent ça la réalité : mais le savoir et la compréhension sont des concepts si ambigus que cette réalité ne pourrait être alors qu'une illusion.",
+        "Je continuerai d'être près de toi, comme le mur que tu devras franchir.",
+        "C'est horrible de se dire que personne ... absolument personne n'a besoin de toi.",
+        "Et pourquoi n'aurais-je pas le droit d'être heureux comme ça ?",
+        "Il  y a quelqu'un que je veux protéger, quelqu'un dont je veux voir les rêves s'accomplir, et c'est ça, mon rêve à moi.",
+        "Une personne ne devient forte que parce qu'elle veut protéger quelqu'un qu'elle aime ...",
+        "Je suis sûr que, si un jour tu rencontres quelqu'un qui te reconnait très sincèrement ... Cette personne deviendra pour toi l'être le plus cher au monde.",
+        "Le désir est la source de tous les conflits en ce monde.",
+
+    ]
+    // var w = window.innerWidth;
+    // var h = window.innerHeight;
+    // var myDiv = document.getElementById('Listen');
+    // myDiv.textContent = citation[Math.floor(Math.random() * citation.length)]
+    // myDiv.style.top = ""+h/4+"px";
+    // myDiv.style.left = ""+w/100+"px";
+
+
+</script>
+</body>
+</html>
