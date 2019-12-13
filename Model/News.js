@@ -25,6 +25,10 @@ News.init({
     charset: 'utf8mb4',
     collate: 'utf8mb4_general_ci',
     
+  },
+  dateTweet: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
 }, {
   charset: 'utf8mb4',
