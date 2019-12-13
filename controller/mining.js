@@ -6,7 +6,7 @@ var Twitter = require('twitter');
 // get the client
 const mysql = require('mysql2');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('mining', 'root', '', {
+const sequelize = new Sequelize('mining', 'root', '123456', {
     host: 'localhost',
     dialect: 'mysql'/* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
   });
@@ -48,7 +48,7 @@ function extractNews(account){
           
                 }
         
-    
+
     });
 
 }
