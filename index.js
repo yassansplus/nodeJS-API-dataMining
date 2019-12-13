@@ -6,6 +6,8 @@ var sentimentTweeter = require('./controller/sentimentTweeter');
 var face = require('./controller/face');
 var firstPage = require('./controller/firstPage');
 var sophia = require('./controller/sophia')
+const cron = require("node-cron");
+const mining = require('./controller/mining');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -22,9 +24,9 @@ app.use('/faceRecognition/',face);
 app.use('/',firstPage);
 app.use('/sophia/',sophia);
 
-
-
-
+cron.schedule("* * * * *", function() {
+  mining.extractNews("brevesdepresse");
+});
 app.listen(3000,'0.0.0.0', function () {
   console.log('Example app listening on port 3000!')
 })
