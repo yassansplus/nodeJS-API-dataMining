@@ -27,7 +27,7 @@ News.init({
     
   },
   dateTweet: {
-    type: Sequelize.STRING,
+    type: Sequelize.DATE,
     allowNull: false
   }
 }, {

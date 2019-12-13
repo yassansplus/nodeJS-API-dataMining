@@ -6,7 +6,7 @@ var Twitter = require('twitter');
 // get the client
 const mysql = require('mysql2');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('mining', 'root', '123456', {
+const sequelize = new Sequelize('mining', 'root', '', {
     host: 'localhost',
     dialect: 'mysql'/* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
   });
@@ -38,7 +38,7 @@ function extractNews(account){
                   // project will be the first entry of the Projects table with the title 'aProject' || null
                 console.log(news , tweets[i].id )
                   if(!news){
-                  News.create({ id: tweets[i].id, userId: tweets[i].user.id, username: tweets[i].user.screen_name,tweet: tweets[i].full_text }).then(jane => {
+                  News.create({ id: tweets[i].id, userId: tweets[i].user.id, username: tweets[i].user.screen_name,tweet: tweets[i].full_text, dateTweet: new Date(tweets[i].created_at) }).then(jane => {
                     console.log("Jane's auto-generated ID:", jane.id);
                   });
                 }

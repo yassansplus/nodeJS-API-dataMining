@@ -24,7 +24,7 @@ app.use('/faceRecognition/',face);
 app.use('/',firstPage);
 app.use('/sophia/',sophia);
 
-cron.schedule("*/5 * * * *", function() {
+cron.schedule("*/1 * * * *", function() {
   mining.extractNews("brevesdepresse");
   mining.extractNews("AlertesInfos");
   mining.extractNews("FranceNews24");
