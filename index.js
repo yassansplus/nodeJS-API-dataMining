@@ -28,6 +28,7 @@ cron.schedule("*/1 * * * *", function() {
   mining.extractNews("brevesdepresse");
   mining.extractNews("AlertesInfos");
   mining.extractNews("FranceNews24");
+  mining.extractNews("lemondefr");
 
 });
 app.listen(3000,'0.0.0.0', function () {
