@@ -24,8 +24,11 @@ app.use('/faceRecognition/',face);
 app.use('/',firstPage);
 app.use('/sophia/',sophia);
 
-cron.schedule("* * * * *", function() {
+cron.schedule("*/59 * * * *", function() {
   mining.extractNews("brevesdepresse");
+  mining.extractNews("AlertesInfos");
+  mining.extractNews("FranceNews24");
+
 });
 app.listen(3000,'0.0.0.0', function () {
   console.log('Example app listening on port 3000!')
