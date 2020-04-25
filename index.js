@@ -40,6 +40,6 @@ cron.schedule("*/1 * * * *", function() {
   mining.extractNews("lemondefr");
 
 });
-app.listen(3000,'0.0.0.0', function () {
+app.listen(process.env.PORT || 8000, function () {
   console.log('Example app listening on port 3000!')
 })
